@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://cdn.bootcss.com/jquery/2.2.1/jquery.js"></script>
+    <style>
+        .car_content {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .car_list {
+            width: 100%;
+            display: inline-block;
+        }
+
+        .car_list li {
+            width: 47%;
+            float: left;
+            height: 20em;
+            border-bottom: 1px solid #000;
+            list-style: none;
+            padding-top: 8em;
+        }
+
+        /*.car_list li:nth-child(odd){*/
+        /*border-left:1px solid #000;*/
+        /*}*/
+        .car_list li:nth-child(even) {
+            border-left: 1px solid #000;
+        }
+
+        .car_list li .car_info {
+            text-align: left;
+            margin-left: 3em;
+        }
+
+        .car_list li .car_info h3 {
+            height: 1em;
+            font-size: 30px;
+            font-weight: bold;
+            line-height: 1em;
+        }
+
+        .car_list li .car_info h4 {
+            font-size: 1.5em;
+            margin-top: -1em;
+            color: #222;
+        }
+
+        .car_list li .car_info .car_moinfo {
+            color: #C9A00A;
+            margin-top: -2em;
+            font-size: 35px;
+            display: inline-block;
+            margin-right: .5em;
+        }
+
+        .car_list li .car_info .car_moinfo span {
+            font-size: 50px;
+        }
+
+        .car_list li .car_info .car_yue {
+            color: #ccc;
+        }
+
+    </style>
+</head>
+<body>
+
+<style>
+
+
+    /*放大效果*/
+    /*img{padding:5px;width:100px;height:auto;}*/
+    #outer{
+        width:100%;
+        height:100%;
+    }
+    .overlay, .overlay0{
+
+
+        position: fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        z-index: 10;
+    }
+    .overlay0{
+        background-color:#000;
+        opacity: .7;
+        filter:alpha(opacity=70);
+    }
+    .overlayimg{
+        position: absolute;
+        z-index: 11;
+        left: 0;
+        top: 25%;
+        width: 100%;
+    }
+
+</style>
+
+<div class="car_content">
+    <ul class="car_list">
+        <li>
+            <img class="sm_img" src="car001.png" alt="">
+            <div class="car_info">
+                <h3>雪弗兰 赛欧3 15款</h3>
+                <h4>1.3L AMT 理想款</h4>
+                <div class="car_moinfo"><span>0</span>首付</div>
+                <span class="car_yue">月供 2173</span>
+            </div>
+        </li>
+        <li>
+            <img class="sm_img" src="car005.png" alt="">
+            <div class="car_info">
+                <h3>雪弗兰 赛欧3 15款</h3>
+                <h4>1.3L AMT 理想款</h4>
+                <div class="car_moinfo"><span>0</span>首付</div>
+                <span class="car_yue">月供 2173</span>
+            </div>
+        </li>
+        <li>
+            <img class="sm_img" src="car001.png" alt="">
+            <div class="car_info">
+                <h3>雪弗兰 赛欧3 15款</h3>
+                <h4>1.3L AMT 理想款</h4>
+                <div class="car_moinfo"><span>0</span>首付</div>
+                <span class="car_yue">月供 2173</span>
+            </div>
+        </li>
+        <li>
+            <img class="sm_img" src="car001.png" alt="">
+            <div class="car_info">
+                <h3>雪弗兰 赛欧3 15款</h3>
+                <h4>1.3L AMT 理想款</h4>
+                <div class="car_moinfo"><span>0</span>首付</div>
+                <span class="car_yue">月供 2173</span>
+            </div>
+        </li>
+        <li>
+            <img class="sm_img" src="car001.png" alt="">
+            <div class="car_info">
+                <h3>雪弗兰 赛欧3 15款</h3>
+                <h4>1.3L AMT 理想款</h4>
+                <div class="car_moinfo"><span>0</span>首付</div>
+                <span class="car_yue">月供 2173</span>
+            </div>
+        </li>
+        <li>
+            <img class="sm_img" src="car001.png" alt="">
+            <div class="car_info">
+                <h3>雪弗兰 赛欧3 15款</h3>
+                <h4>1.3L AMT 理想款</h4>
+                <div class="car_moinfo"><span>0</span>首付</div>
+                <span class="car_yue">月供 2173</span>
+            </div>
+        </li>
+        <li>
+            <img class="sm_img" src="car001.png" alt="">
+            <div class="car_info">
+                <h3>雪弗兰 赛欧3 15款</h3>
+                <h4>1.3L AMT 理想款</h4>
+                <div class="car_moinfo"><span>0</span>首付</div>
+                <span class="car_yue">月供 2173</span>
+            </div>
+        </li>
+
+    </ul>
+</div>
+<script>
+
+
+
+
+    function expandPhoto(){
+        var overlay = document.createElement("div");
+        overlay.setAttribute("id","overlay");
+        overlay.setAttribute("class","overlay");
+        document.body.appendChild(overlay);
+
+        var img = document.createElement("img");
+        img.setAttribute("class","overlayimg");
+        img.src = this.getAttribute("src");
+        document.getElementById("overlay").appendChild(img);
+
+        var div0 = document.createElement("div");
+        div0.setAttribute("class","overlay0");
+        document.getElementById("overlay").appendChild(div0);
+
+        img.onclick = restore;
+    }
+    function restore(){
+        document.body.removeChild(document.getElementById("overlay"));
+        document.body.removeChild(document.getElementById("img"));
+    }
+    window.onload = function(){
+        var imgs = $(".sm_img");
+        imgs[0].focus();
+        for(var i = 0;i<imgs.length;i++){
+            imgs[i].onclick = expandPhoto;
+            imgs[i].onkeydown = expandPhoto;
+        }
+
+    }
+
+
+</script>
+
+</body>
+</html>

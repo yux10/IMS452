@@ -1,0 +1,28 @@
+[
+	{
+		name:'chickenOne',
+		picture:'http://domain.com/img/bird01.png',
+		properties:{
+			color:'red',
+			size:'large',
+			legs:2
+		}
+		abilities:{
+			canFly:true,
+			canLayEgg:false
+		}
+	},
+	{
+		name:'chickenTwo',
+		picture:'http://domain.com/img/bird02.png',
+		properties:{
+			color:'red',
+			size:'large',
+			legs:2
+		}
+		abilities:{
+			fly:true,
+			layegg:false
+		}
+	}
+]
