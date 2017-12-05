@@ -858,7 +858,8 @@
 
 
 .yemian{
-    width: 100%;
+    display: inline-block;
+    width: 86%;
     height: 1000px;
     /* background: #39BBE6; */
     padding-top: 40px;
